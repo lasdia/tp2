@@ -17,14 +17,16 @@
 <div>Date de Publication</div>
 <p>{{article.datePublication.format('d/M/Y')}}</p>
 
+{% if is_granted('ROLE_ECRIVAIN') %}
 <a class="btn btn-primary mr-2" href="{{ path('update_article', {id: article.id}) }}" title="mise à jour">mise à jour
     <i class="fa fa-file-text" aria-hidden="true"></i>
 </a>
-
+{% endif %}
+{% if is_granted('ROLE_ADMIN') %}
 <a class="btn btn-danger" href="{{ path('delete_article', {id: article.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">Supprimer
     <i class="fa fa-trash" aria-hidden="true"></i>
 </a>
-
+{% endif %}
 
 
 {% endfor %}

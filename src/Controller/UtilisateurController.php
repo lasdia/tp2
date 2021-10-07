@@ -10,11 +10,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class UtilisateurController extends AbstractController
 {
     /**
      * @Route("/utilisateur", name="utilisateur_new")
+     * @isGranted("ROLE_ADMIN")
      */
     public function create(Request $request, UserPasswordHasherInterface $userPasswordHasherInterface): Response
     {
