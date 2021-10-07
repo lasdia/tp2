@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Utilisateur{% endblock %}
+
+{% block body %}
+    <h1>Creation d'un nouvelle Utilisateur</h1>
+
+
+    {{ form_start(formulaire) }}
+    {{ form_widget(formulaire) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(formulaire) }}
+
+
+
+ 
+{% endblock %}
